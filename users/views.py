@@ -21,7 +21,8 @@ def log_in(request):
                     error_messages.append('Nombre de usuario o contraseña incorrecta.')
                 elif user.is_active:
                     login(request, user)
-                    return redirect('index')
+                    url = request.GET.get('next', 'index')
+                    return redirect(url)
                 else:
                     error_messages.append('El usuario no está activo')
         else:

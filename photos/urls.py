@@ -4,4 +4,5 @@ from .views import *
 urlpatterns = [
     path('', home, name='index'),
     path('detail/<int:id>', detail, name='detalle'),
+    path('new', create, name='new_photo')
 ]
