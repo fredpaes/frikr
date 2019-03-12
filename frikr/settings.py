@@ -124,3 +124,12 @@ STATIC_URL = '/static/'
 
 # LOGIN URL
 LOGIN_URL = '/login'
+
+# LICENSES to PhotoModel
+LICENSES = (
+    ('MIA', 'La licencia propia'),
+    ('TUY', 'La licencia tuya')
+)
+
+# BADWORDS http://goo.gl/G2nCu7
+BAD_WORDS = ['pendejo', 'mamón', 'joto']

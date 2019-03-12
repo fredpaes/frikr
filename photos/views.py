@@ -26,7 +26,7 @@ def detail(request, id):
     except Photo.MultipleObjects:
         photo = None
     """
-    possible_info = Photo.objects.filter(pk=id)
+    possible_info = Photo.objects.filter(pk=id).select_related('owner')
     info = possible_info[0] if len(possible_info) == 1 else None
     if info is not None:
         context = {'photo': info}
@@ -46,7 +46,9 @@ def create(request):
     if request.method == 'GET':
         form = PhotoForm()
     else:
-        form = PhotoForm(request.POST)
+        photo_owner = Photo()
+        photo_owner.owner = request.user
+        form = PhotoForm(request.POST, instance=photo_owner)
         if form.is_valid():
             new_photo = form.save()
             form = PhotoForm()

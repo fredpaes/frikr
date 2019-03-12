@@ -1,13 +1,9 @@
 from django.contrib.auth.models import User
 from django.db import models
+from .settings import LICENSES
 
 # Create your models here.
 class Photo(models.Model):
-    LICENSES = (
-        ('RIG', 'COPYRIGHT'),
-        ('LEF', 'COPYLEFT'),
-        ('CC', 'CREATIVE COMMONS')
-    )
     VISIBILITY = (
         ('PUB', 'Público'),
         ('PRI', 'Privado')
