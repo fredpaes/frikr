@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Listado de fotos{% endblock %}
+
+{% block section %}
+
+<h1>Listado de fotos</h1>
+{% if msg %}
+<span style="color:green">{{ msg|safe }}</span>
+{% endif %}
+
+{% include 'photos/photos_loop.html' with list=photos %}
+
+{% endblock %}

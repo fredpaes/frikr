@@ -1,0 +1,3 @@
+{% for photo in list %}
+    <a href="{% url 'detalle' photo.pk %}"><img src="{{ photo.url }}" alt="{{ photo.name }}" height="150"></a>
+{% endfor %}

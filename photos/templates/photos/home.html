@@ -6,9 +6,9 @@
     <p>Frikr es como Flickr, pero en friki</p>
     {% if list|length > 0 %}
     <h2>Últimas fotos publicadas</h2>
-    {% for photo in list %}
-    <a href="{% url 'detalle' photo.pk %}"><img src="{{ photo.url }}" alt="{{ photo.name }}" height="150"></a>
-    {% endfor %}
+
+    {% include 'photos/photos_loop.html' %}
+
     {% else %}
     <span>¡Sé el primero en publicar una foto!</span>
     {% endif %}
