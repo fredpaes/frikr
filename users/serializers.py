@@ -36,3 +36,13 @@ class UserSerializer(serializers.Serializer):
         instance.save()
 
         return instance
+
+    def validate_username(self, data):
+        """
+        Valida si existe un usuario con ese username
+        """
+        users = User.objects.filter(username=data)
+        if len(users) != 0:
+            raise serializers.ValidationError("Ya existe un usuario con ese username")
+        else:
+            return data
