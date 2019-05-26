@@ -1,2 +1,5 @@
 /.idea
 *.sqlite3
+users/__pycache__/
+photos/__pycache__/
+frikr/__pycache__/

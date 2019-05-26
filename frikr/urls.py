@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from users.api import UserListAPI
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('photos/', include('photos.urls')),
     path('log', include('users.urls')),
+
+    # Users API URLs
+    path('api/v1.0/users', UserListAPI.as_view(), name='user_list_api'),
 ]
